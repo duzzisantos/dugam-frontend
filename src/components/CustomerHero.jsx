@@ -18,7 +18,7 @@ const CustomerHero = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="mx-0 py-2 d-flex flex-column rounded-0">
+    <div className="mx-0 py-2 d-flex flex-column rounded-0 custom-pry-color">
       <h1 className="fs-4">{userName}</h1>
       <Col className="d-flex flex-column gap-3 shadow-sm rounded-1 px-4 py-2">
         {(
@@ -37,15 +37,16 @@ const CustomerHero = ({
         ) ?? <PersonCircle />}
 
         <div className="d-flex flex-column gap-3">
-          <small className="fs-6">
+          <small>
             <BuildingsFill /> {businessName}
           </small>
-          <small className=" fs-6">
+          <small>
             <BriefcaseFill /> {category ?? "Not assigned yet"}
           </small>
           <div className="d-flex flex-column gap-2">
-            <small className="fs-6">
+            <small>
               <Button
+                size="sm"
                 variant="transaparent"
                 className=" "
                 onClick={() =>
@@ -55,11 +56,14 @@ const CustomerHero = ({
                 Followers{" "}
               </Button>
               <sup>
-                <Badge className="bg-secondary rounded-5">{followers}</Badge>
+                <Badge bg="" className="custom-pry rounded-5">
+                  {followers}
+                </Badge>
               </sup>
             </small>
-            <small className="fs-6">
+            <small>
               <Button
+                size="sm"
                 variant="transaparent"
                 className=" "
                 onClick={() =>

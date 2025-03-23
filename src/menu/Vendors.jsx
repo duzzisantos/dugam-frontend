@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import BusinessCard from "../components/BusinessCard";
 import getGeneralSearch from "../api/useGeneralSearch";
 import Skeleton from "../reusable-comps/Skeleton";
+import { ArrowClockwise, Search } from "react-bootstrap-icons";
 
 const Vendors = ({ user }) => {
   const [search, setSearch] = useState("");
@@ -84,39 +85,42 @@ const Vendors = ({ user }) => {
   };
 
   return (
-    <Container className=" col-lg-12 col-sm-12" style={{ paddingTop: "80px" }}>
-      <h1 className="fs-3 fw-bold col-9 mx-4">Vendors</h1>
+    <Container
+      className="col-xxl-9 col-sm-12 custom-pry-color"
+      style={{ paddingTop: "160px" }}
+    >
+      <h1 className="fs-3 fw-bold">Vendors</h1>
 
       <div className="justify-content-center align-items-center bottom-0 d-flex">
-        <div className="col-12 mb-5 px-4 text-center d-flex flex-column">
+        <div className="col-12 mb-5 text-center d-flex flex-column">
           <Form.Label
             htmlFor="search-vendor"
-            className="fs-4 fw-bold mt-5 text-wrap text-start"
+            className="fs-5 fw-bold mt-5 text-wrap text-start"
           >
             Search Vendors by category or name
           </Form.Label>
-          <div className="col-12 d-flex flex-column">
+          <div className="col-xxl-6 gap-2 d-flex">
             <Form.Control
               id="search-vendor"
               type="search"
-              className="w-100 py-3 rounded-0"
+              className="w-100 py-2 rounded-0"
               placeholder="Eg: Car Tyres"
               value={search === "" && state !== "" ? state : search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <div className="mt-3 hstack gap-2">
+            <div className="hstack gap-2">
               <Button
-                className="custom-pry custom-pry-border text-dark rounded-0"
+                className="custom-pry border-0 rounded-1"
                 onClick={handleVendorSearch}
                 disabled={search === ""}
               >
-                Search
+                <Search />
               </Button>
               <Button
-                className="bg-transparent custom-pry-border text-dark rounded-0"
+                className="bg-transparent border text-dark rounded-1"
                 onClick={() => setSearchState(false)}
               >
-                Reset
+                <ArrowClockwise />
               </Button>
             </div>
           </div>
@@ -124,7 +128,7 @@ const Vendors = ({ user }) => {
       </div>
 
       <div
-        className=" p-4 d-flex gap-3 flex-lg-row flex-sm-column flex-wrap"
+        className="d-flex gap-3 flex-lg-row flex-sm-column flex-wrap"
         style={{ height: "fit-content" }}
       >
         {businesses.flat().length === 0 ? (

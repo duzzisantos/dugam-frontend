@@ -6,9 +6,11 @@ const CustomerPhotoGrid = ({ user }) => {
 
   return (
     <Col xxl={12} className="mt-5">
-      <h6>{photos.length} Photos</h6>
+      <h6>
+        {photos.length} Photo{photos.length > 1 ? "s" : ""}
+      </h6>
 
-      <div className="d-flex flex-wrap justify-content-sm-center justify-content-lg-start gap-2 bg-light p-4 photo-grid">
+      <div className="d-flex flex-wrap justify-content-sm-center justify-content-lg-start gap-2 shadow-sm mb-5 p-4 photo-grid">
         {photos.length === 0 ? (
           <Alert className="p-2" variant="warning">
             No photos to display

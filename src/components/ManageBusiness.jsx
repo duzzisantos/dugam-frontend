@@ -31,9 +31,9 @@ const ManageBusiness = ({ commonBiggerBoxclasses, biz, ratings, user }) => {
       <div className="px-2">
         <Tabs className="mb-3">
           <Tab eventKey="details" title="Details">
-            <Card className="border-0 bg-light p-4">
-              <Card.Header className="d-flex justify-content-between bg-transparent border rounded-0">
-                <h6>Manage General Details</h6>
+            <Card className="border-0 bg-transparent shadow-sm p-4 custom-pry-color">
+              <Card.Header className="hstack gap-5 bg-transparent border-0 rounded-0">
+                <span className="h6 mt-2">Manage General Details</span>
                 <Button
                   size="sm"
                   variant="transparent"
@@ -81,7 +81,7 @@ const ManageBusiness = ({ commonBiggerBoxclasses, biz, ratings, user }) => {
             </Card>
           </Tab>
           <Tab eventKey="ratings" title={`Ratings (${ratings.length})`}>
-            <div className="bg-light p-4">
+            <div className="shadow-sm p-4">
               <h6>{ratings.length} Ratings</h6>
               {ratings.length > 0 ? (
                 ratings?.map((el, i) => (

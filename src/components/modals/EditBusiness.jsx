@@ -100,7 +100,7 @@ const EditBusiness = ({ user, show, handleClose }) => {
       className="custom-pry-color"
     >
       <Modal.Header closeButton>
-        <Modal.Title className="h5">
+        <Modal.Title className="h6 fw-semibold">
           <PencilFill /> Editing My Business
         </Modal.Title>
       </Modal.Header>
@@ -288,13 +288,15 @@ const EditBusiness = ({ user, show, handleClose }) => {
           <Col className="hstack gap-2">
             <Button
               type="submit"
-              className="custom-pry text-dark rounded-0 custom-pry-border"
+              size="sm"
+              className="custom-pry text-light rounded-0 border-0 rounded-1"
             >
               Submit
             </Button>
             <Button
               onClick={handleClose}
-              className="rounded-0 bg-transparent text-dark custom-pry-border"
+              size="sm"
+              className="rounded-1 bg-transparent custom-pry-color border"
             >
               Close
             </Button>

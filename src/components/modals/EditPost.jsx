@@ -8,6 +8,7 @@ import {
   getRemainingLimit,
 } from "../../helpers/stringHelpers";
 import { getBase64Size } from "../../helpers/getBase64Size";
+import { Send, XLg } from "react-bootstrap-icons";
 
 const EditPost = ({
   user,
@@ -76,7 +77,7 @@ const EditPost = ({
           size="lg"
         >
           <Modal.Header closeButton>
-            <Modal.Title className=" text-dark h5">Editing post</Modal.Title>
+            <Modal.Title className="fw-semibold h6">Editing post</Modal.Title>
           </Modal.Header>
           <Modal.Body className="custom-pry-color">
             <Form className="p-0 rounded-2 mb-2 vstack gap-2">
@@ -125,19 +126,19 @@ const EditPost = ({
                 <Button
                   size="sm"
                   type="button"
-                  className="custom-pry text-dark border-0 rounded-0"
+                  className="custom-pry custom-pry-color border-1 rounded-1"
                   disabled={fileSize > 100000 || message === ""}
                   onClick={handleSubmit}
                 >
-                  Post
+                  <Send /> Post
                 </Button>
                 <Button
                   size="sm"
                   variant="transparent"
-                  className="rounded-0 custom-pry-border"
+                  className="rounded-1 border custom-pry"
                   onClick={() => setShow(false)}
                 >
-                  Close
+                  <XLg /> Close
                 </Button>
               </div>
             </Form>

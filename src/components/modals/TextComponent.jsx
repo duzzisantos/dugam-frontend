@@ -1,4 +1,5 @@
 import { Button, Col, Form, Modal } from "react-bootstrap";
+import { Send, XLg } from "react-bootstrap-icons";
 
 const TextComponent = ({
   handleClose,
@@ -11,7 +12,7 @@ const TextComponent = ({
   return (
     <Modal show={showModal} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title className="h5 custom-pry-color text-dark">
+        <Modal.Title className="h6 fw-semibold custom-pry-color text-dark">
           Commenting on post
         </Modal.Title>
       </Modal.Header>
@@ -38,21 +39,21 @@ const TextComponent = ({
             <Button
               type="button"
               size="sm"
-              className="custom-pry-border bg-transparent custom-pry-color text-dark rounded-0"
+              className="border bg-transparent custom-pry-color rounded-1"
               onClick={handleClose}
             >
-              Close
+              <XLg />
             </Button>
             <Button
               size="sm"
-              className="custom-pry custom-pry-border text-dark rounded-0"
+              className="custom-pry custom-pry-border text-light rounded-1"
               type="button"
               disabled={content === ""}
               onClick={() => {
                 handleSave();
               }}
             >
-              Reply
+              <Send /> Reply
             </Button>
           </Col>
         </Form>

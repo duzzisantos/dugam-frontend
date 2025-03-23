@@ -17,7 +17,7 @@ const ManageFollowers = ({
       <div className="px-2">
         <Tabs className="mb-3">
           <Tab eventKey="content" title={`Posts (${content[0]?.length})`}>
-            <div className="bg-light p-4">
+            <div className="mb-4 shadow-sm p-4">
               <h6>{content[0]?.length} Posts</h6>
               {content[0]?.map((item, index) => (
                 <UserContentTemplate
@@ -33,7 +33,7 @@ const ManageFollowers = ({
             <CustomerPhotoGrid user={user} />
           </Tab>
           <Tab eventKey="messages" title={`Messages (${messages?.length})`}>
-            <div className="bg-light p-4">
+            <div className="shadow-sm mb-4 p-4">
               <h6> {messages?.length} Messages</h6>
               {messages.flat()?.length > 0 ? (
                 messages

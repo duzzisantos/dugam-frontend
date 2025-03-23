@@ -45,7 +45,7 @@ function AddRatings({ show, handleClose, businessEmail, user, secondParty }) {
         className="custom-pry-color"
       >
         <Modal.Header closeButton>
-          <Modal.Title className="h6">
+          <Modal.Title className="h6 fw-semibold">
             <StarFill /> Ratings for: {businessEmail}
           </Modal.Title>
         </Modal.Header>
@@ -89,14 +89,16 @@ function AddRatings({ show, handleClose, businessEmail, user, secondParty }) {
         </Modal.Body>
         <Modal.Footer>
           <Button
+            size="sm"
             variant="transparent"
-            className="custom-pry-border rounded-0"
+            className="border rounded-1 custom-pry-color"
             onClick={handleClose}
           >
             Cancel
           </Button>
           <Button
-            className="custom-pry-border custom-pry text-dark rounded-0"
+            size="sm"
+            className="custom-pry-border custom-pry text-light rounded-1"
             onClick={handleSubmit}
             disabled={
               ratingStars === 0 || ratingsContent === "" || ratingsTitle === ""

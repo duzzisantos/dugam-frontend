@@ -1,9 +1,5 @@
 import { Card, Button, Form } from "react-bootstrap";
-import {
-  BriefcaseFill,
-  BuildingsFill,
-  PlusCircle,
-} from "react-bootstrap-icons";
+import { BriefcaseFill, BuildingsFill } from "react-bootstrap-icons";
 import { handleFollow } from "../api/timelineAPIs";
 
 const SuggestedFollows = ({
@@ -14,7 +10,7 @@ const SuggestedFollows = ({
   secondPartyEmail,
 }) => {
   return (
-    <Card className="p-2 gap-2 border-0 shadow-sm rounded-0">
+    <Card className="p-2 gap-2 border-0 shadow-sm rounded-0 custom-pry-color">
       <small>
         <BuildingsFill /> {businessName ?? "My Business Limited"}
       </small>
@@ -26,12 +22,12 @@ const SuggestedFollows = ({
           <Button
             size="sm"
             variant="transparent"
-            className="border border-1 border-secondary"
+            className="border-0 custom-pry text-light"
             onClick={() => {
               handleFollow(user, secondParty, secondPartyEmail);
             }}
           >
-            <PlusCircle /> Follow
+            Follow
           </Button>
         </Form>
       </div>

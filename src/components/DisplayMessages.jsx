@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { CalendarDateFill, PersonFill } from "react-bootstrap-icons";
+import {
+  CalendarDateFill,
+  PersonFill,
+  PlusLg,
+  Send,
+} from "react-bootstrap-icons";
 import ReplyMessage from "./modals/ReplyMessage";
 
 const MessagesTemplate = ({
@@ -26,9 +31,13 @@ const MessagesTemplate = ({
         <h2 className="fs-6 fw-bold text-capitalize">{subject}</h2>
         <div className="d-flex vstack gap-1 smaller-text text-secondary">
           {sender === user.email ? (
-            <small className="text-primary fw-bold">Sent</small>
+            <small className=" fw-bold" style={{ color: "teal" }}>
+              Sent
+            </small>
           ) : (
-            <small className="text-primary fw-bold">Received</small>
+            <small className="fw-bold" style={{ color: "brown" }}>
+              Received
+            </small>
           )}
           <div>
             {" "}
@@ -46,21 +55,21 @@ const MessagesTemplate = ({
               size="sm"
               about="To reply a message"
               title="Reply message"
-              className={`custom-pry-btn rounded-0 border-0`}
+              className={`custom-pry rounded-1 border-0`}
               onClick={() => setShow(!show)}
             >
-              Follow up
+              <Send /> Follow up
             </Button>
             <Button
               size="sm"
               variant="transparent"
-              className="custom-pry-bordered-btn rounded-0"
+              className="border rounded-1 custom-pry-color"
               onClick={() => {
                 setShowReplies(!showReplies);
                 setWhichReply(id);
               }}
             >
-              Responses
+              <PlusLg /> Responses
             </Button>
           </div>
         )}

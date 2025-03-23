@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Container, Modal, Row } from "react-bootstrap";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import HeroArea from "../components/landing-page/Hero";
+
 import FindCustomers from "../components/landing-page/FindCustomers";
 import SuggestionBoxes from "../reusable-comps/SuggestionBoxes";
 import useGetCities from "../api/useGetCities";
@@ -14,6 +14,15 @@ import useGetAllRatings from "../api/useGetAllRatings";
 import RenderResults from "../components/landing-page/RenderResults";
 import useGetGroupedBusinesses from "../api/useGetGroupedBusinesses";
 import Skeleton from "../reusable-comps/Skeleton";
+import {
+  BagFill,
+  CardChecklist,
+  GlobeEuropeAfrica,
+  Pin,
+  XLg,
+} from "react-bootstrap-icons";
+import FeaturedBusinesses from "../components/landing-page/FeaturedBusinesses";
+// import StreetMaps from "../components/landing-page/StreetMaps";
 
 const Home = ({ user }) => {
   const [search, setSearch] = useState("");
@@ -86,7 +95,7 @@ const Home = ({ user }) => {
   return (
     <div
       className="col-12 px-0 custom-pry-color  overflow-x-hidden"
-      style={{ paddingTop: "50px" }}
+      style={{ paddingTop: `${user ? "160px" : "60px"}` }}
     >
       {!user && window.location.pathname === "/" ? (
         <Navbar className="w-100 py-1 shadow-sm mt-0 fixed-top bg-light">
@@ -94,9 +103,9 @@ const Home = ({ user }) => {
             <Navbar.Brand
               as={Link}
               to="home"
-              className="hstack fw-bold custom-pry-color"
+              className="hstack gap-2 fw-bold brand-color"
             >
-              Dugam {"   "}
+              <BagFill /> dugam {"   "}
             </Navbar.Brand>
             <Navbar.Toggle />
             <Nav className="fw-bold hstack gap-3">
@@ -105,7 +114,7 @@ const Home = ({ user }) => {
               </a>
               <a
                 href="/login"
-                className="text-decoration-none custom-pry btn btn-sm fw-bold"
+                className="text-decoration-none custom-pry btn text-light btn-sm fw-bold"
               >
                 Login
               </a>
@@ -113,10 +122,17 @@ const Home = ({ user }) => {
           </Container>
         </Navbar>
       ) : user && window.location.pathname === "home" ? null : null}
-      <section className="bg-white col-12" style={{ height: "500px" }}>
-        <HeroArea />
-      </section>
+
       <Row className="my-4">
+        <div className="col-xxl-9 mx-auto">
+          <h1 className="h3 fw-bold mb-2">
+            Dugam connects you with vendors and service providers in your area.
+          </h1>
+          <p className="brand-color">
+            Traders and business owners contact each other and establish new
+            partnerships.
+          </p>
+        </div>
         <FindCustomers
           validated={validated}
           validatedNarrow={validatedNarrow}
@@ -148,42 +164,53 @@ const Home = ({ user }) => {
           }}
         />
       </Row>
-
       <section
-        className="py-5 gap-3 d-flex justify-content-center align-items-center bottom-0  flex-column bg-light"
+        className="col-xxl-9  py-3 px-1 gap-3 d-flex mx-auto bottom-0 flex-column rounded-1 mb-5"
         style={{ height: "fit-content" }}
       >
-        <h2 className="fw-bold">Popular categories</h2>
-        <div className="col-9 justify-content-center bottom-0 h-100">
-          <div className="d-flex flex-wrap gap-3 text-center mt-3">
-            {categories.length === 0 ? (
-              <Skeleton children={""} />
-            ) : (
-              categories.map((el, i) => (
-                <SuggestionBoxes key={i} title={el} user={user} />
-              ))
-            )}
-          </div>
+        <h2 className="fw-bold h5 hstack gap-2">
+          <Pin /> Featured businesses
+        </h2>
+        {/* <StreetMaps /> */}
+        <FeaturedBusinesses />
+      </section>
+
+      <section
+        className="col-xxl-9  py-3 px-1 gap-3 d-flex mx-auto bottom-0 flex-column rounded-1 mb-5"
+        style={{ height: "fit-content" }}
+      >
+        <h2 className="fw-semibold h5 hstack gap-2">
+          <CardChecklist /> Popular categories
+        </h2>
+        <div className="d-flex flex-wrap gap-3 text-center mt-3">
+          {categories.length === 0 ? (
+            <Skeleton children={""} />
+          ) : (
+            categories.map((el, i) => (
+              <SuggestionBoxes key={i} title={el} user={user} />
+            ))
+          )}
         </div>
       </section>
 
       <section
-        className="py-5 gap-3 d-flex justify-content-center align-items-center bottom-0  flex-column bg-white"
+        className="col-xxl-9  py-3 px-1 gap-3 d-flex mx-auto bottom-0 flex-column rounded-1 mb-5"
         style={{ height: "fit-content" }}
       >
-        <h2 className="fw-bold">Popular regions</h2>
-        <div className="col-9 justify-content-center bottom-0 h-100">
-          <div className="d-flex flex-wrap gap-3 text-center mt-3">
-            {regions.length === 0 ? (
-              <Skeleton children={""} />
-            ) : (
-              regions.map((el, i) => (
-                <SuggestionBoxes key={i} title={el} user={user} />
-              ))
-            )}
-          </div>
+        <h2 className="fw-bold h5 hstack gap-2">
+          <GlobeEuropeAfrica /> Popular regions
+        </h2>
+        <div className="d-flex flex-wrap gap-3 text-center mt-3">
+          {regions.length === 0 ? (
+            <Skeleton children={""} />
+          ) : (
+            regions.map((el, i) => (
+              <SuggestionBoxes key={i} title={el} user={user} />
+            ))
+          )}
         </div>
       </section>
+
       {showResult ? (
         <Modal
           size="xl"
@@ -194,11 +221,13 @@ const Home = ({ user }) => {
           fullscreen
         >
           <Modal.Header closeButton closeVariant="dark">
-            <Modal.Title className="h5">Search for businesses</Modal.Title>
+            <Modal.Title className="h6 fw-semibold">
+              Search for businesses
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/** Refactor this to be modular */}
-            <div className="col-12">
+            <div className="col-12 col-xxl-9">
               <FindCustomers
                 validated={validated}
                 validatedNarrow={validatedNarrow}
@@ -261,11 +290,12 @@ const Home = ({ user }) => {
           </Modal.Body>
           <Modal.Footer>
             <Button
+              size="sm"
               variant="transparent"
-              className="custom-pry-border rounded-0 text-dark"
+              className="border rounded-1 text-dark"
               onClick={() => setShowResult(!showResult)}
             >
-              Close
+              <XLg />
             </Button>
           </Modal.Footer>
         </Modal>

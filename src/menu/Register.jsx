@@ -14,6 +14,7 @@ import {
   Map,
   PeopleFill,
   PersonPlusFill,
+  Send,
   ShieldFillCheck,
   TelephoneInbound,
 } from "react-bootstrap-icons";
@@ -111,8 +112,8 @@ const Register = ({ user }) => {
   return (
     <Container
       fluid
-      className="col-lg-9 col-sm-12"
-      style={{ paddingTop: "80px" }}
+      className="col-lg-9 col-sm-12 custom-pry-color"
+      style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold">Add Business</h1>
       <div className="py-3 d-flex justify-content-center">
@@ -311,16 +312,17 @@ const Register = ({ user }) => {
 
           <Col className="hstack gap-2">
             <Button
+              size="sm"
               type="submit"
-              className="custom-pry rounded-0 custom-pry-border text-dark"
+              className="custom-pry rounded-1 custom-pry-border text-light"
               disabled={Object.values(vendor).every((el) => !el)}
             >
-              Submit
+              <Send /> Submit
             </Button>
             <input
               title="Reset"
               type="reset"
-              className="btn bg-transparent custom-pry-border rounded-0"
+              className="btn btn-sm bg-transparent border rounded-1"
               onClick={() => setVendor("")}
             />
           </Col>

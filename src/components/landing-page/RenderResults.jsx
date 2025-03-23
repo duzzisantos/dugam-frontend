@@ -27,7 +27,7 @@ function RenderResults({
   if (isSuccess) {
     return (
       <div className="bg-light mt-5 p-3">
-        <h6 className="mx-3 text-primary">
+        <h6 className="mx-3 custom-pry-color">
           {contentLength} Result{contentLength > 1 ? "s" : ""}
         </h6>
         <Businesses

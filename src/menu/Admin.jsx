@@ -7,7 +7,7 @@ import useGetOneBusiness from "../api/useGetOneBusiness";
 import useGetRatings from "../api/useGetRatings";
 import useGetAllUserContent from "../api/useGetUserPosts";
 import useGetMessages from "../api/useGetMessages";
-import { BuildingsFill, PeopleFill, StarFill } from "react-bootstrap-icons";
+import { Buildings, People, Star } from "react-bootstrap-icons";
 import Skeleton from "../reusable-comps/Skeleton";
 
 const Admin = ({ user }) => {
@@ -30,10 +30,13 @@ const Admin = ({ user }) => {
     );
   };
 
-  const commonClass = "pt-3 card-hover shadow-sm rounded border-5 border-info";
+  const commonClass = "pt-3 shadow-sm rounded border-5 border-info";
 
   return (
-    <Container className="col-lg-9 col-sm-12" style={{ paddingTop: "80px" }}>
+    <Container
+      className="col-lg-9 col-sm-12 custom-pry-color"
+      style={{ paddingTop: "160px" }}
+    >
       <h1 className="fs-3 fw-bold text-start">My Business</h1>
 
       <Row
@@ -46,7 +49,7 @@ const Admin = ({ user }) => {
       >
         <Col className={commonClass}>
           <small className="h6 fw-bold">
-            <PeopleFill className="text-info fs-1" /> Followers vs Following
+            <People className="brand-color fs-3" /> Followers vs Following
           </small>
           {!followers.length && !following.length ? (
             <Skeleton />
@@ -60,7 +63,7 @@ const Admin = ({ user }) => {
 
         <Col className={commonClass}>
           <small className="h6 fw-bold">
-            <StarFill className="text-warning fs-1" /> Average Rating
+            <Star className="fs-3" /> Average Rating
           </small>
           {!rating.length ? (
             <p className="h5 mt-4">0</p>
@@ -72,7 +75,7 @@ const Admin = ({ user }) => {
         </Col>
         <Col className={commonClass}>
           <small className="h6 fw-bold">
-            <BuildingsFill className="fs-1" /> Top Industry Interested
+            <Buildings className="fs-3" /> Top Industry Interested
           </small>
           <p className="mt-4 h5">Fabrics</p>
         </Col>

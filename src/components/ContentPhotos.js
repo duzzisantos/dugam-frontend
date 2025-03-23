@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { getHost } from "../helpers/getHost";
-import { X } from "react-bootstrap-icons";
+import { Upload, X } from "react-bootstrap-icons";
 
 const ContentPhotos = ({ user }) => {
   const [status, setStatus] = useState(0);
@@ -38,9 +38,9 @@ const ContentPhotos = ({ user }) => {
     <Form className="d-flex flex-column vstack gap-2 rounded-2">
       <Form.Label
         htmlFor="image"
-        className="btn custom-pry-btn rounded-0 btn-sm text-light w-25"
+        className="btn btn-sm custom-pry rounded-1 text-light w-25"
       >
-        Upload
+        <Upload /> Upload
       </Form.Label>
 
       <Form.Control

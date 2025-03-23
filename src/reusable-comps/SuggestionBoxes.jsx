@@ -1,4 +1,5 @@
 import { Card, CardBody, Button } from "react-bootstrap";
+import { ArrowRightCircle } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 
 const SuggestionBoxes = ({ title, user }) => {
@@ -9,20 +10,26 @@ const SuggestionBoxes = ({ title, user }) => {
   };
 
   return (
-    <Card className="col-lg-3 col-md-4 col-sm-4 shadow-sm border-0 rounded-0 d-flex justify-content-center p-3 card-hover suggestion-boxes">
-      <h3 className="fs-5 fw-bold text-capitalize">{title}</h3>
-      <CardBody>
+    <Card className="col-lg-3 col-md-4 col-sm-4 shadow-sm border-0 rounded-0 d-flex justify-content-center p-3 suggestion-boxes">
+      <h3 className="fs-6 fw-semibold custom-pry-color text-capitalize">
+        {title}
+      </h3>
+      <CardBody className="suggestion-explore-text">
         {user === null || user === undefined ? (
-          <a href="/login" className="text-decoration-none custom-pry-text">
-            Explore
+          <a href="/login" className="text-decoration-none text-secondary">
+            <small>
+              {" "}
+              Explore <ArrowRightCircle />
+            </small>
           </a>
         ) : user ? (
           <Button
+            size="sm"
             variant="transparent"
-            className="custom-pry-text border-0"
+            className="border-0 text-secondary"
             onClick={handleVisit}
           >
-            Explore
+            Explore <ArrowRightCircle />
           </Button>
         ) : null}
       </CardBody>

@@ -20,7 +20,7 @@ function DisplayImages({ show, handleClose, businessName, photo }) {
         className="custom-pry-color"
       >
         <Modal.Header closeButton>
-          <Modal.Title className="h6">
+          <Modal.Title className="h6 fw-semibold">
             <ImageFill /> {businessName}
           </Modal.Title>
         </Modal.Header>
@@ -50,8 +50,9 @@ function DisplayImages({ show, handleClose, businessName, photo }) {
             navigate`}
           </small>
           <Button
+            size="sm"
             variant="transparent"
-            className="border border-secondary rounded-0"
+            className="border rounded-1 custom-pry-color"
             onClick={handleClose}
           >
             Close

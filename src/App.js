@@ -25,8 +25,9 @@ function App() {
   //wrap everything with a user context to avoid too many prop drills
   return (
     <BrowserRouter>
-      <div className="App vh-100">
+      <div className="App vh-100 manrope-dugam">
         {user && <Navigation />}
+
         <Routes>
           {!user && pathname === "/login" ? (
             <Route path="/login" element={<Login />} />

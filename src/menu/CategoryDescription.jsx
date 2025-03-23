@@ -2,24 +2,18 @@ import { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import ShoppingLady from "../images/shopping-lady.jpg";
-import VendorListByCategory from "../tables/VendorListByCategory";
 import { useVendorItems } from "../hooks/useVendorItems";
+import BusinessCard from "../components/BusinessCard";
 
 const CategoryDescription = ({ user }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const { state } = useLocation();
   const currentState = !selectedCategory ? state : selectedCategory;
 
-  const {
-    vendors,
-    vendorCategories,
-    regions,
-    rowSelection,
-    colDefs,
-    pageSize,
-    pageSizeSelector,
-    pagination,
-  } = useVendorItems(user, currentState);
+  const { vendorCategories, vendors, regions } = useVendorItems(
+    user,
+    currentState
+  );
 
   const mergedCategoryList = [...regions, ...vendorCategories()];
 
@@ -27,13 +21,15 @@ const CategoryDescription = ({ user }) => {
     setSelectedCategory(e.target.value);
   };
 
+  console.log(vendors());
+
   return (
     <Container
       className="col-12 custom-pry-color"
-      style={{ paddingTop: "80px" }}
+      style={{ paddingTop: "160px" }}
     >
       <div className="px-4 mx-2">
-        <h1 className="fs-3 fw-bold col-9">{currentState}</h1>
+        <h1 className="fs-5 fw-bold col-9">{currentState}</h1>
 
         <Form.Group className="col-lg-2 col-sm-6">
           <Form.Label>Change category</Form.Label>
@@ -93,15 +89,22 @@ const CategoryDescription = ({ user }) => {
           </div>
         </section>
         <section className="mt-5 ps-3 mx-3 gap-3">
-          <h3 className="fw-bold my-3">Vendors in {currentState}</h3>
-          <VendorListByCategory
-            vendors={vendors}
-            colDefs={colDefs}
-            rowSelection={rowSelection}
-            pageSize={pageSize}
-            pageSizeSelector={pageSizeSelector}
-            pagination={pagination}
-          />
+          <h5 className="fw-bold my-3">Vendors in {currentState}</h5>
+          <div className="mb-5 d-flex gap-3 flex-sm-wrap">
+            {vendors().map((item, index) => (
+              <BusinessCard
+                key={index}
+                businessEmailAddress={item.email}
+                state={item.state}
+                city={item.city}
+                address={item.address}
+                businessCategory={item.category}
+                phone={item.businessPhone}
+                ratingScore={item.ratingScore}
+                photo={item.photos}
+              />
+            ))}
+          </div>
         </section>
       </div>
     </Container>

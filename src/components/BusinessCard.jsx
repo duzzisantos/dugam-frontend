@@ -6,6 +6,8 @@ import {
   GeoAltFill,
   TelephoneInboundFill,
   ImageFill,
+  Send,
+  Star,
 } from "react-bootstrap-icons";
 import AddRatings from "./modals/AddRatings";
 import AddMessage from "./modals/AddMessage";
@@ -37,7 +39,7 @@ const BusinessCard = ({
   return (
     <>
       <Card
-        className={`col-lg-${
+        className={`custom-pry-color col-lg-${
           isModal ? 12 : 5
         } col-sm-12  shadow-sm border-0  rounded-0  shake-on-hover business-card`}
         style={{ height: "fit-content" }}
@@ -48,52 +50,50 @@ const BusinessCard = ({
           </Card.Title>
         </Card.Header>
         <Card.Body>
-          <section className="border-4 border-bottom  mb-2">
+          <section className="border-1 border-bottom  mb-2">
             <Button
               variant="transparent"
-              className="btn-sm custom-pry-bordered-btn text-dark mb-2 rounded-0"
+              className="btn-sm mb-2 rounded-0"
               onClick={() => setShowImages(!showImages)}
             >
               <ImageFill /> View Photos
             </Button>
           </section>
-          <ul className="lh-lg" style={{ height: "250px" }}>
+          <ul className="lh-lg px-0" style={{ height: "200px" }}>
             <li>
-              <BriefcaseFill className="text-dark" /> Category:{" "}
-              {businessCategory}
+              <GeoAltFill /> Address: {`${address}, ${city}, ${state}`}
             </li>
             <li>
-              <TelephoneInboundFill className="text-success" /> Phone: {phone}
+              <EnvelopeAtFill /> Email: {businessEmailAddress}
             </li>
             <li>
-              <EnvelopeAtFill className="text-primary" /> Email:{" "}
-              {businessEmailAddress}
+              <TelephoneInboundFill /> Phone: {phone}
             </li>
             <li>
-              <GeoAltFill className="text-primary" /> Address:{" "}
-              {`${address}, ${city}, ${state}`}
+              <BriefcaseFill /> Category: {businessCategory}
             </li>
+
             <li>
-              <StarFill className="text-warning" /> Ratings:{" "}
+              <StarFill /> Ratings:{" "}
               {isNaN(ratingScore) ? "None received yet" : ratingScore}
             </li>
           </ul>
           {!user || user.email === businessEmailAddress ? null : ( //do not allow ratings on the home page if current client is not logged in or if rendered card pertains to current client
-            <div className="d-flex justify-content-end gap-2 mt-auto">
+            <div className="d-flex justify-content-start gap-2">
               <Button
                 size="sm"
-                className="custom-pry-btn px-2  text-light rounded-0"
+                className="custom-pry border-0 text-light rounded-1"
                 onClick={handleShowMessage}
               >
-                Send message
+                <Send /> Send message
               </Button>
               <Button
                 size="sm"
                 variant="transparent"
-                className="custom-pry-bordered-btn px-2 rounded-0"
+                className="border custom-pry-color rounded-1"
                 onClick={handleShow}
               >
-                Add rating
+                <Star /> Add rating
               </Button>
             </div>
           )}

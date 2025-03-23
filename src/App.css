@@ -1,15 +1,33 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Poppins&display=swap");
 
-* {
-  font-family: "Helvetica Neue", "Arial", sans-serif;
-  color: black;
+.manrope-dugam {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.form-label,
+.form-control,
+.form-select {
+  font-size: 15px !important;
 }
 
 .App {
   height: fit-content;
   width: 100%;
-  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.brand-color {
+  color: #ff5a5f !important;
+}
+
+.image-filter {
+  filter: grayscale(100%) !important;
+}
+
+.image-unfilter:hover {
+  filter: none !important;
 }
 
 .not-allowed-cursor {
@@ -24,19 +42,19 @@
 }
 
 .custom-pry {
-  background-color: #ffd400 !important;
+  background-color: #ff5a5f !important;
 }
 
 .custom-pry-border {
-  border: 1.5px solid #ffd400 !important;
+  border: 1.5px solid #ff5a5f !important;
 }
 
 .custom-pry-color {
-  color: #ffd400;
+  color: #464545 !important;
 }
 
 .custom-link:hover {
-  color: #ffd400 !important;
+  color: #ff5a5f !important;
 }
 
 .custom-pry-btn {
@@ -223,10 +241,15 @@ button[role="tab"] {
   }
 }
 
+.suggestion-explore-text:hover {
+  color: #ff5a5f !important;
+}
+
 @media screen and (max-width: 600px) {
   #narrow-search-items,
   #connect-page-wrapper,
   #admin-dashboard,
+  .search-vendors,
   .suggestion-boxes {
     display: flex;
     flex-direction: column !important;
@@ -238,6 +261,12 @@ button[role="tab"] {
 
   .business-card {
     width: 90% !important;
+  }
+
+  .my-highlights {
+    width: 90% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   #show-side-menu {

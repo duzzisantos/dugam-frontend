@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { ArrowLeft } from "react-bootstrap-icons";
+import { ArrowLeft, Power } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import loginPage from "../images/konigsstrasse.jpg";
+import loginPage from "../images/konigsstrasse2.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ const Login = () => {
       </div>
       <Row className="custom-pry">
         <Col lg={3} md={6} sm={12} xs={12}>
-          <Form className="p-4 rounded-0 vh-100 mx-3 custom-pry text-dark">
+          <Form className="p-4 rounded-0 vh-100 mx-3 custom-pry text-light">
             <h1 className="fw-bold h3 ">Login to Dugam</h1>
             <div className="justify-content-start d-flex flex-column mb-2">
               <Form.Label htmlFor="login-email">Email</Form.Label>
@@ -55,7 +55,7 @@ const Login = () => {
 
             <Button
               size="md"
-              className="mt-4 d-block custom-pry-btn rounded-0 border-0"
+              className="mt-4 d-block bg-light text-dark rounded-1 border-0"
               onClick={() => {
                 logInWithEmailAndPassword(email, password);
                 navigate("/home");
@@ -63,7 +63,7 @@ const Login = () => {
               title="Login"
               disabled={password === "" || email === ""}
             >
-              Login
+              <Power /> Login
             </Button>
 
             <a

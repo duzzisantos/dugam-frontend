@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, registerWithEmailAndPassword } from "./firebase";
 import "../App.css";
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
-import { ArrowLeft } from "react-bootstrap-icons";
+import { ArrowLeft, Power } from "react-bootstrap-icons";
 import axios from "axios";
 import { getHost } from "../helpers/getHost";
 import loginPage from "../images/shopping-lady.jpg";
@@ -71,7 +71,7 @@ const Signup = () => {
 
       <Row className="custom-pry">
         <Col lg={3} md={6} sm={12} xs={12}>
-          <Form className="p-4 rounded-0 vh-100 mx-3 custom-pry text-dark">
+          <Form className="p-4 rounded-0 vh-100 mx-3 custom-pry text-light">
             <h3 className="fw-bold">Sign up to Dugam</h3>
             <div className="justify-content-start d-flex flex-column mb-2">
               <Form.Label htmlFor="fullName">Full Name</Form.Label>
@@ -106,10 +106,10 @@ const Signup = () => {
             <Button
               size="md"
               disabled={password === "" || email === "" || name === ""}
-              className="mt-4 d-block custom-pry-btn rounded-0 border-0"
+              className="mt-4 d-block btn-light rounded-1 border-0"
               onClick={handleRegistrationProcess}
             >
-              Signup
+              <Power /> Signup
             </Button>
             <a
               href="/login"

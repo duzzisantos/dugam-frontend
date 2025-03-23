@@ -73,16 +73,18 @@ function ReplyMessage({
             />
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="border-top-0">
           <Button
+            size="sm"
             variant="transparent"
-            className="custom-pry-border rounded-0 custom-pry-color"
+            className="border rounded-1 custom-pry-color"
             onClick={handleClose}
           >
             Cancel
           </Button>
           <Button
-            className="custom-pry-border text-dark custom-pry rounded-0"
+            size="sm"
+            className="border-0 text-light custom-pry rounded-1"
             onClick={handleSubmit}
             disabled={replyBody === "" || repliedBy === ""}
           >

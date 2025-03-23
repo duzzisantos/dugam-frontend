@@ -71,7 +71,7 @@ const Timeline = ({
   const hasLikes = likes?.some((content) => content.isLiked);
 
   return (
-    <Card className="p-2 col-12 border-0 shadow-sm rounded-0">
+    <Card className="p-2 col-12 border-0 shadow-sm rounded-0 custom-pry-color">
       <fieldset className="d-flex flex-column px-2">
         <div className="d-flex justify-content-between">
           <div className="d-flex justify-content-start hstack gap-3">
@@ -181,7 +181,7 @@ const Timeline = ({
           {contentBody ?? "Loading content..........."}
           {contentImage && (
             <img
-              className="border w-100 rounded-1 mt-3"
+              className="border-0 w-100 shadow-sm rounded-1 mt-3"
               src={contentImage}
               alt=""
             />

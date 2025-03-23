@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Col, Form, Modal } from "react-bootstrap";
 import { getHost } from "../helpers/getHost";
-import { PencilFill } from "react-bootstrap-icons";
+import { ArrowClockwise, PencilFill, Send, XLg } from "react-bootstrap-icons";
 import { encodeImageAsURL, getRemainingLimit } from "../helpers/stringHelpers";
 import { getBase64Size } from "../helpers/getBase64Size";
 
@@ -66,7 +66,7 @@ const ConnectWritePost = ({ user, authorName, refetch }) => {
           size="lg"
         >
           <Modal.Header closeButton>
-            <Modal.Title className=" h5">Write post</Modal.Title>
+            <Modal.Title className="h6">Write post</Modal.Title>
           </Modal.Header>
           <Modal.Body className="custom-pry-color">
             <Form className="p-0 rounded-2 mb-2 vstack gap-2">
@@ -105,9 +105,9 @@ const ConnectWritePost = ({ user, authorName, refetch }) => {
                 {" "}
                 <Form.Text>Max Upload 100 KB.</Form.Text>
                 {fileSize > 100000 && (
-                  <div className="text-danger px-2 rounded-2">
+                  <small className="text-danger px-2 rounded-2">
                     File cannot exceed 100 KB.
-                  </div>
+                  </small>
                 )}
               </div>
 
@@ -115,27 +115,31 @@ const ConnectWritePost = ({ user, authorName, refetch }) => {
                 <Button
                   size="sm"
                   type="button"
-                  className="custom-pry text-dark border-0 rounded-0"
+                  className="custom-pry text-light border-0 rounded-1"
                   disabled={fileSize > 100000 || message === ""}
                   onClick={handleSubmit}
                 >
-                  Post
+                  <Send /> Post
                 </Button>
                 <div className="hstack gap-2">
                   <Button
                     size="sm"
-                    className="rounded-0 border-0 custom-pry-btn text-light"
-                    onClick={() => setShow(false)}
+                    variant="transparent"
+                    className="rounded-1 border custom-pry-color"
+                    onClick={() => {
+                      setMessage("");
+                      setCoverted("");
+                    }}
                   >
-                    Clear
+                    <ArrowClockwise />
                   </Button>
                   <Button
                     size="sm"
                     variant="transparent"
-                    className="rounded-0 custom-pry-border"
+                    className="rounded-1 border custom-pry-color"
                     onClick={() => setShow(false)}
                   >
-                    Close
+                    <XLg />
                   </Button>
                 </div>
               </div>

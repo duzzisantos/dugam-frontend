@@ -38,7 +38,7 @@ const Connect = ({ user }) => {
   };
 
   return (
-    <div style={{ paddingTop: "80px" }}>
+    <div style={{ paddingTop: "160px" }}>
       <Container
         id="connect-page-wrapper"
         fluid
@@ -158,7 +158,7 @@ const Connect = ({ user }) => {
                   ?
                 </button>
               </span>
-              <div className="my-2 d-flex flex-column gap-3">
+              <div className="my-2 d-flex flex-column gap-3 custom-pry-color">
                 {advertContent.map((el, index) => {
                   const { title, content, image } = el;
                   return (
