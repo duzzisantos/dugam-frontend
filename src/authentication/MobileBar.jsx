@@ -9,56 +9,53 @@ import {
 } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
-const SideBar = () => {
+const MobileBar = () => {
   return (
-    <div
-      className="col-xxl-1 d-flex flex-column gap-4"
-      style={{ paddingTop: "100px" }}
-    >
+    <div className="col-xxl-12 custom-pry text-light fw-bold show-mobile-bar fixed-bottom d-xxl-none d-md-none justify-content-between  p-3">
       <Nav.Link
         as={Link}
         to="home"
         className="d-flex flex-column align-items-center"
       >
-        <HouseUp /> <small>Home</small>
+        <HouseUp />
       </Nav.Link>
       <Nav.Link
         as={Link}
         to="register"
         className="d-flex flex-column align-items-center"
       >
-        <PencilSquare /> <small>Add Business</small>
+        <PencilSquare />
       </Nav.Link>
       <Nav.Link
         as={Link}
         to="vendors"
         className="d-flex flex-column align-items-center"
       >
-        <CartCheck /> <small>Vendors</small>
+        <CartCheck />
       </Nav.Link>
       <Nav.Link
         as={Link}
         to="connect"
         className="d-flex flex-column align-items-center"
       >
-        <PlusCircle /> <small>Connect</small>
+        <PlusCircle />
       </Nav.Link>
       <Nav.Link
         as={Link}
         to="categories"
         className="d-flex flex-column align-items-center"
       >
-        <CardChecklist /> <small>Categories</small>
+        <CardChecklist />
       </Nav.Link>
       <Nav.Link
         as={Link}
         to="admin"
         className="d-flex flex-column align-items-center"
       >
-        <BuildingUp /> <small>My Business</small>
+        <BuildingUp />
       </Nav.Link>
     </div>
   );
 };
 
-export default SideBar;
+export default MobileBar;

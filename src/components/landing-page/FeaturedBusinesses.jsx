@@ -10,7 +10,7 @@ const FeaturedBusinesses = () => {
   return (
     <div
       style={{ height: "340px" }}
-      className="col-12 overflow-x-scroll p-2 shadow-sm"
+      className="col-12 overflow-x-scroll p-2 p-sm-3 shadow-sm hero-pad"
     >
       <div className="d-flex gap-3">
         {featureCompanies.map((el) => (
@@ -29,7 +29,7 @@ const FeaturedBusinesses = () => {
 
 const Featured = ({ companyName, ratings, logo, category }) => {
   return (
-    <div className="featured-business col-xxl-4 col-lg-5 col-md-6 col-sm-7 shadow-sm px-4 py-3 image-filter image-unfilter">
+    <div className="featured-business col-xxl-4 col-lg-5 col-md-6 col-sm-7 hero-pad shadow-sm px-4 py-3 image-filter image-unfilter">
       <div className="position-relative  d-flex justify-content-end">
         <Button
           variant="transparent"

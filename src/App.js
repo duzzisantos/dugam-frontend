@@ -17,6 +17,7 @@ import Signup from "./authentication/Signup";
 import Followers from "./menu/Followers";
 import Categories from "./menu/Categories";
 import CategoryDescription from "./menu/CategoryDescription";
+import MobileBar from "./authentication/MobileBar";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -69,6 +70,7 @@ function App() {
         </Routes>
 
         <FooterComponent />
+        {user ? <MobileBar /> : null}
       </div>
     </BrowserRouter>
   );

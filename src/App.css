@@ -250,9 +250,23 @@ button[role="tab"] {
   #connect-page-wrapper,
   #admin-dashboard,
   .search-vendors,
+  .categories-wrap,
   .suggestion-boxes {
     display: flex;
     flex-direction: column !important;
+  }
+
+  .show-mobile-bar {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .width-85 {
+    width: 85% !important;
+  }
+
+  .remove-bar {
+    display: none !important;
   }
 
   .suggestion-boxes {
@@ -280,6 +294,9 @@ button[role="tab"] {
   #customer-hero {
     display: none !important;
   }
+  .pt-110 {
+    padding-top: 110px !important;
+  }
 
   .hero-pad {
     padding: 0px 35px 0px 35px !important;
@@ -302,6 +319,22 @@ button[role="tab"] {
 @media screen and (max-width: 800px) {
   #show-side-menu {
     display: block !important;
+  }
+  .hero-pad {
+    padding: 0px 25px 0px 25px !important;
+  }
+
+  .pt-110 {
+    padding-top: 110px !important;
+  }
+
+  .show-mobile-bar {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .remove-bar {
+    display: none !important;
   }
 
   #customer-hero {

@@ -90,7 +90,7 @@ const CategoryDescription = ({ user }) => {
         </section>
         <section className="mt-5 ps-3 mx-3 gap-3">
           <h5 className="fw-bold my-3">Vendors in {currentState}</h5>
-          <div className="mb-5 d-flex gap-3 flex-sm-wrap">
+          <div className="mb-5 d-flex gap-3 flex-sm-wrap categories-wrap">
             {vendors().map((item, index) => (
               <BusinessCard
                 key={index}

@@ -84,7 +84,7 @@ const Navigation = () => {
       expand="lg"
       className="bg-white shadow-sm py-2 d-block fixed-top"
     >
-      <Container className="col-lg-9 col-sm-12 pe-0 d-flex justify-content-between mb-3">
+      <Container className="col-lg-9 col-sm-12 pe-0 d-flex justify-content-between flex-sm-wrap mb-3">
         <Navbar.Brand
           as={Link}
           to="home"
@@ -94,51 +94,53 @@ const Navigation = () => {
           <BagFill focusable={false} /> dugam{"   "}
         </Navbar.Brand>
 
-        <div className="hstack col-xxl-4 justify-content-end me-2">
-          <FormControl
-            type="search"
-            placeholder="Global Search"
-            size="sm"
-            className="mt-3 me-2"
-            style={{ width: "70%", height: "fit-content" }}
-          />
-          <Button
-            size="sm"
-            variant="secondary"
-            className="mt-3 rounded-5 border-0"
+        <div className="d-flex justify-content-end gap-2 col-xxl-8">
+          <NavDropdown
+            className="col-xxl-2 col-sm-2 border-0 col-md-2 p-2 btn btn-light rounded-5 mt-2"
+            title={<PersonFill className="fs-4 text-secondary" />}
+            style={{ width: "fit-content" }}
           >
-            <Search />
-          </Button>
-        </div>
-        <NavDropdown
-          className="col-xxl-2 col-sm-2 border-0 col-md-2 p-2 btn btn-light rounded-5 mt-2"
-          title={<PersonFill className="fs-4 text-secondary" />}
-          style={{ width: "fit-content" }}
-        >
-          <div className="p-2 border-0 smaller-text mx-1">
-            <p>
-              <PersonFill /> {customerData[0]?.userName ?? name}
-            </p>
-            <p>
-              <ClockFill /> Last login: {user.metadata.lastSignInTime}
-            </p>
+            <div className="p-2 border-0 smaller-text">
+              <p>
+                <PersonFill /> {customerData[0]?.userName ?? name}
+              </p>
+              <p>
+                <ClockFill /> Last login: {user.metadata.lastSignInTime}
+              </p>
+              <Button
+                size="sm"
+                className="custom-pry rounded-1 border-0"
+                onClick={() => {
+                  logout();
+                  navigate("/");
+                }}
+                title="Logout"
+              >
+                <Power /> Logout
+              </Button>
+            </div>
+          </NavDropdown>
+          <div className="hstack col-xxl-7 justify-content-end me-2">
+            <FormControl
+              type="search"
+              placeholder="Global Search"
+              size="sm"
+              className="mt-3 me-2 width-85"
+              style={{ width: "70%", height: "fit-content" }}
+            />
             <Button
               size="sm"
-              className="custom-pry rounded-1 border-0"
-              onClick={() => {
-                logout();
-                navigate("/");
-              }}
-              title="Logout"
+              variant="secondary"
+              className="mt-3 rounded-5 border-0"
             >
-              <Power /> Logout
+              <Search />
             </Button>
           </div>
-        </NavDropdown>
+        </div>
       </Container>
       <Container
         fluid
-        className="col-lg-9 fw-semibold col-sm-12 p-0 d-flex mb-1"
+        className="col-lg-9 fw-semibold col-sm-12 p-0 d-xxl-flex mb-1 remove-bar"
       >
         <Navbar.Toggle className="text-light mx-2 border-0" id="hamburger" />
         <Navbar.Collapse>

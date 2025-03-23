@@ -94,7 +94,7 @@ const Home = ({ user }) => {
 
   return (
     <div
-      className="col-12 px-0 custom-pry-color  overflow-x-hidden"
+      className="col-12 px-0 custom-pry-color  overflow-x-hidden pt-110"
       style={{ paddingTop: `${user ? "160px" : "60px"}` }}
     >
       {!user && window.location.pathname === "/" ? (
@@ -125,7 +125,7 @@ const Home = ({ user }) => {
 
       <Row className="my-4">
         <div className="col-xxl-9 mx-auto hero-pad">
-          <h1 className="h3 fw-bold mb-2">
+          <h1 className="h3 fw-semibold mb-2">
             Dugam connects you with vendors and service providers in your area.
           </h1>
           <p className="brand-color">
@@ -168,7 +168,7 @@ const Home = ({ user }) => {
         className="col-xxl-9  py-3 px-1 gap-3 d-flex mx-auto bottom-0 flex-column rounded-1 mb-5"
         style={{ height: "fit-content" }}
       >
-        <h2 className="fw-bold h5 hstack gap-2">
+        <h2 className="fw-bold h5 hstack p-sm-3 gap-2">
           <Pin /> Featured businesses
         </h2>
         {/* <StreetMaps /> */}
@@ -179,10 +179,10 @@ const Home = ({ user }) => {
         className="col-xxl-9  py-3 px-1 gap-3 d-flex mx-auto bottom-0 flex-column rounded-1 mb-5"
         style={{ height: "fit-content" }}
       >
-        <h2 className="fw-semibold h5 hstack gap-2">
+        <h2 className="fw-semibold h5 hstack p-sm-3 gap-2">
           <CardChecklist /> Popular categories
         </h2>
-        <div className="d-flex flex-wrap gap-3 text-center mt-3">
+        <div className="d-flex flex-wrap gap-3 p-sm-3 text-center mt-3">
           {categories.length === 0 ? (
             <Skeleton children={""} />
           ) : (
