@@ -22,13 +22,13 @@
   color: #ff5a5f !important;
 }
 
-.image-filter {
+/* .image-filter {
   filter: grayscale(100%) !important;
 }
 
 .image-unfilter:hover {
   filter: none !important;
-}
+} */
 
 .not-allowed-cursor {
   cursor: not-allowed !important;
@@ -279,6 +279,10 @@ button[role="tab"] {
 
   #customer-hero {
     display: none !important;
+  }
+
+  .hero-pad {
+    padding: 0px 35px 0px 35px !important;
   }
 
   .stack-categories,

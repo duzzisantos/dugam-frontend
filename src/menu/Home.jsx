@@ -124,7 +124,7 @@ const Home = ({ user }) => {
       ) : user && window.location.pathname === "home" ? null : null}
 
       <Row className="my-4">
-        <div className="col-xxl-9 mx-auto">
+        <div className="col-xxl-9 mx-auto hero-pad">
           <h1 className="h3 fw-bold mb-2">
             Dugam connects you with vendors and service providers in your area.
           </h1>
