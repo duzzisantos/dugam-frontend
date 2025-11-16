@@ -38,11 +38,12 @@ const Connect = ({ user }) => {
   };
 
   return (
-    <div style={{ paddingTop: "160px" }}>
+    <div style={{ paddingTop: "160px" }} className="custom-pry-color">
+      <h1 className="fs-3 fw-bold px-5"> Connect</h1>
       <Container
         id="connect-page-wrapper"
         fluid
-        className=" col-lg-9 col-sm-12 gap-3 custom-pry-color d-flex flex-lg-row flex-sm-column justify-content-between"
+        className=" col-lg-12 px-5 col-sm-12 gap-3 custom-pry-color d-flex flex-lg-row flex-sm-column justify-content-between"
       >
         <div id="show-side-menu" className="d-none">
           <Button

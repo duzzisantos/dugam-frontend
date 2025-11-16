@@ -4,15 +4,7 @@ import axios from "axios";
 import { db, auth, logout } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import React from "react";
-import {
-  Navbar,
-  Container,
-  Nav,
-  Button,
-  NavDropdown,
-  FormControl,
-} from "react-bootstrap";
+import { Navbar, Nav, Button, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
   BuildingUp,
@@ -23,7 +15,6 @@ import {
   PersonFill,
   PlusCircle,
   CardChecklist,
-  Search,
   BagFill,
   Power,
 } from "react-bootstrap-icons";
@@ -82,9 +73,9 @@ const Navigation = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="bg-white shadow-sm py-2 d-block fixed-top"
+      className="bg-white shadow-sm fixed-top col-xxl-12"
     >
-      <Container className="col-lg-9 col-sm-12 pe-0 d-flex justify-content-between flex-sm-wrap mb-3">
+      <div className="col-xxl-12 col-sm-12 px-5 d-flex h-stack gap-5 justify-content-between flex-sm-wrap mb-3">
         <Navbar.Brand
           as={Link}
           to="home"
@@ -93,11 +84,59 @@ const Navigation = () => {
         >
           <BagFill focusable={false} /> dugam{"   "}
         </Navbar.Brand>
-
-        <div className="d-flex justify-content-end gap-2 col-xxl-8">
+        <Navbar.Toggle className="text-light mx-2 border-0" id="hamburger" />
+        <Navbar.Collapse>
+          <Nav className="me-auto d-flex justify-content-between col-xxl-12">
+            <div className="d-flex hstack px-1 flex-lg-row flex-md-column flex-sm-column">
+              <Nav.Link
+                as={Link}
+                to="home"
+                className="d-flex hstack gap-2 align-items-center"
+              >
+                <HouseUp /> <small>Home</small>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="register"
+                className="d-flex hstack gap-2 align-items-center"
+              >
+                <PencilSquare /> <small>Add Business</small>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="vendors"
+                className="d-flex hstack gap-2 align-items-center"
+              >
+                <CartCheck /> <small>Vendors</small>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="connect"
+                className="d-flex hstack gap-2 align-items-center"
+              >
+                <PlusCircle /> <small>Connect</small>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="categories"
+                className="d-flex hstack gap-2 align-items-center"
+              >
+                <CardChecklist /> <small>Categories</small>
+              </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="admin"
+                className="d-flex hstack gap-2 align-items-center"
+              >
+                <BuildingUp /> <small>My Business</small>
+              </Nav.Link>
+            </div>
+          </Nav>
+        </Navbar.Collapse>
+        <div className="d-flex justify-content-end gap-2">
           <NavDropdown
-            className="col-xxl-2 col-sm-2 border-0 col-md-2 p-2 btn btn-light rounded-5 mt-2"
-            title={<PersonFill className="fs-4 text-secondary" />}
+            className="col-xxl-4 col-sm-4 border-0 col-lg-4 p-2 btn btn-light rounded-2 mt-2"
+            title={<PersonFill className="fs-3 custom-pry-color" />}
             style={{ width: "fit-content" }}
           >
             <div className="p-2 border-0 smaller-text">
@@ -120,78 +159,8 @@ const Navigation = () => {
               </Button>
             </div>
           </NavDropdown>
-          <div className="hstack col-xxl-7 justify-content-end me-2">
-            <FormControl
-              type="search"
-              placeholder="Global Search"
-              size="sm"
-              className="mt-3 me-2 width-85"
-              style={{ width: "70%", height: "fit-content" }}
-            />
-            <Button
-              size="sm"
-              variant="secondary"
-              className="mt-3 rounded-5 border-0"
-            >
-              <Search />
-            </Button>
-          </div>
         </div>
-      </Container>
-      <Container
-        fluid
-        className="col-lg-9 fw-semibold col-sm-12 p-0 d-xxl-flex mb-1 remove-bar"
-      >
-        <Navbar.Toggle className="text-light mx-2 border-0" id="hamburger" />
-        <Navbar.Collapse>
-          <Nav className="me-auto d-flex justify-content-between col-xxl-12">
-            <div className="d-flex hstack px-1 flex-lg-row flex-md-column flex-sm-column">
-              <Nav.Link
-                as={Link}
-                to="home"
-                className="d-flex flex-column align-items-center"
-              >
-                <HouseUp /> <small>Home</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="register"
-                className="d-flex flex-column align-items-center"
-              >
-                <PencilSquare /> <small>Add Business</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="vendors"
-                className="d-flex flex-column align-items-center"
-              >
-                <CartCheck /> <small>Vendors</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="connect"
-                className="d-flex flex-column align-items-center"
-              >
-                <PlusCircle /> <small>Connect</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="categories"
-                className="d-flex flex-column align-items-center"
-              >
-                <CardChecklist /> <small>Categories</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="admin"
-                className="d-flex flex-column align-items-center"
-              >
-                <BuildingUp /> <small>My Business</small>
-              </Nav.Link>
-            </div>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   );
 };

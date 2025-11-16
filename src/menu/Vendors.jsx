@@ -86,7 +86,8 @@ const Vendors = ({ user }) => {
 
   return (
     <Container
-      className="col-xxl-9 col-sm-12 custom-pry-color"
+      fluid
+      className="col-lg-12 col-sm-12 px-5 custom-pry-color"
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold">Vendors</h1>

@@ -7,7 +7,7 @@ import useGetOneBusiness from "../api/useGetOneBusiness";
 import useGetRatings from "../api/useGetRatings";
 import useGetAllUserContent from "../api/useGetUserPosts";
 import useGetMessages from "../api/useGetMessages";
-import { Buildings, People, Star } from "react-bootstrap-icons";
+import { Buildings, Envelope, People, Star } from "react-bootstrap-icons";
 import Skeleton from "../reusable-comps/Skeleton";
 
 const Admin = ({ user }) => {
@@ -34,13 +34,14 @@ const Admin = ({ user }) => {
 
   return (
     <Container
-      className="col-lg-9 col-sm-12 custom-pry-color"
+      fluid
+      className="col-lg-12 px-5 col-sm-12 custom-pry-color"
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold text-start">My Business</h1>
 
       <Row
-        lg={9}
+        lg={12}
         md={9}
         xs={10}
         sm={10}
@@ -57,6 +58,20 @@ const Admin = ({ user }) => {
             <p className="mt-4 h5">
               {followers[0]?.length}
               {" : "} {following[0]?.length}
+            </p>
+          )}
+        </Col>
+        <Col className={commonClass}>
+          <small className="h6 fw-bold">
+            <Envelope className="brand-color fs-3" /> Messages
+          </small>
+
+          {!messages.length ? (
+            <Skeleton />
+          ) : (
+            <p className="mt-4 h5">
+              {messages?.length}
+              {" : "} {messages?.length}
             </p>
           )}
         </Col>

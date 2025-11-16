@@ -112,11 +112,11 @@ const Register = ({ user }) => {
   return (
     <Container
       fluid
-      className="col-lg-9 col-sm-12 custom-pry-color"
+      className="col-lg-12 col-sm-12 px-5 custom-pry-color"
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold">Add Business</h1>
-      <div className="py-3 d-flex justify-content-center">
+      <div className="py-3 d-flex justify-content-center shadow-sm p-4 mb-5 rounded-2 col-xxl-6 col-lg-6">
         <Form
           onSubmit={handleSubmit}
           encType="multipart/form-data"
