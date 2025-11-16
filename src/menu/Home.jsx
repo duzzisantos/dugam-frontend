@@ -17,11 +17,13 @@ import Skeleton from "../reusable-comps/Skeleton";
 import {
   BagFill,
   CardChecklist,
+  CartCheck,
   GlobeEuropeAfrica,
   Pin,
   XLg,
 } from "react-bootstrap-icons";
 import FeaturedBusinesses from "../components/landing-page/FeaturedBusinesses";
+import InforCards from "../components/landing-page/InfoCards";
 // import StreetMaps from "../components/landing-page/StreetMaps";
 
 const Home = ({ user }) => {
@@ -96,7 +98,7 @@ const Home = ({ user }) => {
   return (
     <div
       className=" px-0 custom-pry-color  overflow-x-hidden pt-110"
-      style={{ paddingTop: `${user ? "130px" : "60px"}` }}
+      style={{ paddingTop: `${user ? "110px" : "60px"}` }}
     >
       {!user && window.location.pathname === "/" ? (
         <Navbar className="w-100 py-1 shadow-sm mt-0 fixed-top bg-light">
@@ -169,7 +171,7 @@ const Home = ({ user }) => {
         <h2 className="fw-bold h5 hstack p-sm-3 gap-2">
           <Pin /> Featured businesses
         </h2>
-        {/* <StreetMaps /> */}
+
         <div className="px-4">
           <FeaturedBusinesses like={like} setLike={setLike} />
         </div>
@@ -188,6 +190,13 @@ const Home = ({ user }) => {
             ))
           )}
         </div>
+      </Row>
+
+      <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>
+        <h2 className="fw-bold h5 hstack p-sm-3 gap-2">
+          <CartCheck /> Platform Benefits
+        </h2>
+        <InforCards />
       </Row>
 
       <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>

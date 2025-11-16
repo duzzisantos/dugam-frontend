@@ -39,6 +39,9 @@ const Admin = ({ user }) => {
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold text-start">My Business</h1>
+      <p className="brand-color">
+        Track and manage messages, ratings, and vendor profile on marketplace
+      </p>
 
       <Row
         lg={12}

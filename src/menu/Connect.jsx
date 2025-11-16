@@ -40,6 +40,9 @@ const Connect = ({ user }) => {
   return (
     <div style={{ paddingTop: "160px" }} className="custom-pry-color">
       <h1 className="fs-3 fw-bold px-5"> Connect</h1>
+      <p className="brand-color mx-5">
+        Connect and socialize with other marketplace members
+      </p>
       <Container
         id="connect-page-wrapper"
         fluid

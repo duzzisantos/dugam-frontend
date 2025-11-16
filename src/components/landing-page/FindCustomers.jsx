@@ -55,7 +55,7 @@ const FindCustomers = ({
   return (
     <div className="vstack gap-3">
       <Form className="d-flex col-12 flex-sm-wrap mx-lg-auto p-0 gap-3 search-vendors">
-        <Col className="col-xxl-5 col-sm-12 gap-2 shadow-sm rounded-1 p-4">
+        <Col className="col-xxl-4 col-sm-12 gap-2 shadow-sm rounded-1 p-4">
           <h5 className="fw-semibold custom-pry-color mb-3">
             <Filter /> Narrow business search
           </h5>
@@ -133,7 +133,7 @@ const FindCustomers = ({
             </Button>
           </Col>
         </Col>
-        <Col className="col-xxl-5 col-sm-12 gap-2 shadow-sm rounded-1 p-4 mh-100">
+        <Col className="col-xxl-4 col-sm-12 gap-2 shadow-sm rounded-1 p-4 mh-100">
           <Form.Group>
             <Form.Label
               className="fs-5 fw-semibold custom-pry-color mb-3"
