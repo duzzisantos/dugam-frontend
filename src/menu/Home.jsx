@@ -167,17 +167,13 @@ const Home = ({ user }) => {
           }}
         />
       </Row>
-      <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>
+      <Row className="my-5 px-4 gap-2" style={{ height: "fit-content" }}>
         <h2 className="fw-bold h5 hstack p-sm-3 gap-2">
-          <Pin /> Featured businesses
+          <CartCheck /> Platform Benefits
         </h2>
-
-        <div className="px-4">
-          <FeaturedBusinesses like={like} setLike={setLike} />
-        </div>
+        <InforCards />
       </Row>
-
-      <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>
+      <Row className="my-5 px-4 gap-2" style={{ height: "fit-content" }}>
         <h2 className="fw-semibold h5 hstack p-sm-3 gap-2 mx-1">
           <CardChecklist /> Popular categories
         </h2>
@@ -191,15 +187,17 @@ const Home = ({ user }) => {
           )}
         </div>
       </Row>
-
-      <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>
+      <Row className="my-5 px-4 gap-2" style={{ height: "fit-content" }}>
         <h2 className="fw-bold h5 hstack p-sm-3 gap-2">
-          <CartCheck /> Platform Benefits
+          <Pin /> Featured businesses
         </h2>
-        <InforCards />
+
+        <div className="px-4">
+          <FeaturedBusinesses like={like} setLike={setLike} />
+        </div>
       </Row>
 
-      <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>
+      <Row className="my-5 px-4 gap-2" style={{ height: "fit-content" }}>
         <h2 className="fw-bold h5 hstack gap-2 mx-1">
           <GlobeEuropeAfrica /> Popular regions
         </h2>

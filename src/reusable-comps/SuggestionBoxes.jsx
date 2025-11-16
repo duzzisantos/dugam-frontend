@@ -10,7 +10,7 @@ const SuggestionBoxes = ({ title, user }) => {
   };
 
   return (
-    <Card className="col-lg-3 col-md-4 col-sm-4 shadow-sm border-0 rounded-0 d-flex justify-content-center p-3 suggestion-boxes">
+    <Card className="col-lg-3 col-md-4 col-sm-4 shadow-sm border-0  rounded-0 d-flex justify-content-center p-3 suggestion-boxes">
       <h3 className="fs-6 fw-semibold custom-pry-color text-capitalize">
         {title}
       </h3>

@@ -245,6 +245,10 @@ button[role="tab"] {
   color: #ff5a5f !important;
 }
 
+.suggestion-boxes:hover {
+  background-color: whitesmoke;
+}
+
 @media screen and (max-width: 600px) {
   #narrow-search-items,
   #connect-page-wrapper,
