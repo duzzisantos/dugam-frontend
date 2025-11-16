@@ -186,22 +186,29 @@ button[role="tab"] {
   border-radius: 10px;
 }
 
-/* Define the keyframes for the shake animation */
-@keyframes shake {
+/* Slight dangling shake animation */
+.shake-card:hover {
+  animation: shake-dangle 0.7s ease-in-out;
+}
+
+@keyframes shake-dangle {
   0% {
-    transform: translateX(0);
+    transform: rotate(0deg);
   }
-  25% {
-    transform: translateX(-5px);
+  20% {
+    transform: rotate(2deg);
   }
-  50% {
-    transform: translateX(5px);
+  40% {
+    transform: rotate(-2deg);
   }
-  75% {
-    transform: translateX(-5px);
+  60% {
+    transform: rotate(1.5deg);
+  }
+  80% {
+    transform: rotate(-1.5deg);
   }
   100% {
-    transform: translateX(0);
+    transform: rotate(0deg);
   }
 }
 

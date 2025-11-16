@@ -10,7 +10,9 @@ const Categories = ({ user }) => {
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold">Categories Overview</h1>
-      <p className="brand-color">Explore different categories on marketplace</p>
+      <p className="custom-pry-text">
+        Explore different categories on marketplace
+      </p>
       <Row className="justify-content-center bottom-0">
         <Col className="d-flex flex-wrap gap-3 text-center mt-3 pb-5">
           {optionsArray.map((el, i) => (

@@ -48,7 +48,7 @@ const Featured = ({
   like,
 }) => {
   return (
-    <div className="featured-business col-xxl-3 col-lg-3 col-md-6 col-sm-10 hero-pad shadow-sm px-3 py-3 image-filter image-unfilter">
+    <div className="featured-business col-xxl-3 col-lg-3 col-md-6 col-sm-10 hero-pad shadow-lg px-3 py-3 image-filter image-unfilter">
       <div className="position-relative  d-flex justify-content-end">
         <Button
           variant="transparent"

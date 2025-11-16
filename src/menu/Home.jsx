@@ -131,7 +131,7 @@ const Home = ({ user }) => {
           <h1 className="h3 fw-bold mb-2">
             Dugam connects you with vendors and service providers in your area.
           </h1>
-          <p className="brand-color">
+          <p className="custom-pry-text">
             Traders and business owners contact each other and establish new
             partnerships.
           </p>
@@ -168,13 +168,13 @@ const Home = ({ user }) => {
         />
       </Row>
       <Row className="my-5 px-4 gap-2" style={{ height: "fit-content" }}>
-        <h2 className="fw-bold h5 hstack p-sm-3 gap-2">
+        <h2 className="fw-bold h5 hstack p-sm-3 gap-2 mx-1">
           <CartCheck /> Platform Benefits
         </h2>
         <InforCards />
       </Row>
       <Row className="my-5 px-4 gap-2" style={{ height: "fit-content" }}>
-        <h2 className="fw-semibold h5 hstack p-sm-3 gap-2 mx-1">
+        <h2 className="fw-semibold h5 hstack p-sm-3 gap-2 mt-5 mx-1">
           <CardChecklist /> Popular categories
         </h2>
         <div className="d-flex flex-wrap gap-3 p-sm-3 text-center mt-3">

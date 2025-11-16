@@ -116,7 +116,7 @@ const Register = ({ user }) => {
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold">Add Business</h1>
-      <p className="brand-color">
+      <p className="custom-pry-text">
         Register new business to feature on marketplace
       </p>
       <div className="py-3 d-flex justify-content-center shadow-sm p-4 mb-5 rounded-2 col-xxl-6 col-lg-6">

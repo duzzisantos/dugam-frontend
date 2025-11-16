@@ -26,11 +26,24 @@ export default function InforCards() {
 
   return (
     <div className="px-4 mt-4">
+      <div className="py-1 bg-secondary-subtle w-100 rounded-2"></div>
       <Row className="g-4">
         {cards.map((c, i) => (
-          <Col key={i} xs={12} lg={3} sm={6} md={4} style={{ height: "380px" }}>
+          <Col
+            className="shake-card"
+            key={i}
+            xs={12}
+            lg={3}
+            sm={6}
+            md={4}
+            style={{ height: "380px" }}
+          >
+            <div
+              className="bg-secondary-subtle d-flex mx-auto"
+              style={{ height: "40px", width: "10px" }}
+            ></div>
             <Card
-              className="h-100 shadow-sm border-0 rounded-2"
+              className="h-100 shadow-lg border-0 rounded-2"
               style={{ overflow: "hidden" }}
             >
               <Card.Img

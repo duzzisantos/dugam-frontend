@@ -4,7 +4,6 @@ import {
   Bank2,
   CardChecklist,
   Filter,
-  Globe,
   Map,
   Search,
 } from "react-bootstrap-icons";
@@ -55,9 +54,47 @@ const FindCustomers = ({
   return (
     <div className="vstack gap-3">
       <Form className="d-flex col-12 flex-sm-wrap mx-lg-auto p-0 gap-3 search-vendors">
-        <Col className="col-xxl-4 col-sm-12 gap-2 shadow-sm rounded-1 p-4">
+        {/* <Col className="col-xxl-3 col-sm-12 gap-2 shadow-lg rounded-1 p-4 mh-100">
+          <Form.Group>
+            <Form.Label
+              className="fs-5 fw-semibold custom-pry-color mb-3"
+              htmlFor="search-businesses"
+            >
+              <Globe /> Search all vendors
+            </Form.Label>
+
+            <Form.Control
+              id="search-businesses"
+              className="w-100 py-2 rounded-0  mt-2"
+              placeholder="Eg: Car Tyres"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              required
+            />
+          </Form.Group>
+
+          <Col className="w-75 hstack mt-3">
+            <Button
+              size="sm"
+              className="custom-pry custom-pry-border rounded-1"
+              onClick={handleGeneralSearch}
+              type="submit"
+              disabled={search === ""}
+            >
+              <Search />
+            </Button>
+            <Button
+              size="sm"
+              className="border bg-transparent text-dark rounded-1 mx-2"
+              onClick={handleResetGeneral}
+            >
+              <ArrowClockwise />
+            </Button>
+          </Col>
+        </Col> */}
+        <Col className="col-xxl-5 col-sm-12 gap-2 shadow-lg rounded-1 p-4">
           <h5 className="fw-semibold custom-pry-color mb-3">
-            <Filter /> Narrow business search
+            <Filter /> Search vendor
           </h5>
           <FormGroup className="mb-2">
             <Form.Label
@@ -133,43 +170,45 @@ const FindCustomers = ({
             </Button>
           </Col>
         </Col>
-        <Col className="col-xxl-4 col-sm-12 gap-2 shadow-sm rounded-1 p-4 mh-100">
-          <Form.Group>
-            <Form.Label
-              className="fs-5 fw-semibold custom-pry-color mb-3"
-              htmlFor="search-businesses"
-            >
-              <Globe /> Wide business search
-            </Form.Label>
 
-            <Form.Control
-              id="search-businesses"
-              className="w-100 py-2 rounded-0  mt-2"
-              placeholder="Eg: Car Tyres"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              required
-            />
-          </Form.Group>
+        <Col className="col-xxl-6 col-sm-12 gap-2 shadow-lg rounded-1 p-4 mh-100 custom-pry d-flex justify-content-center align-items-center text-white">
+          <div>
+            <h2 className="fs-1 fw-bolder">
+              Would you like to remember your search criteria?
+            </h2>
+            <p className="text-light mt-3">
+              Don't worry! By saving search parameters, you could easily
+              continue from where you stopped when next you visit
+            </p>
+            <div className="mt-5 justify-content-between d-flex">
+              <Button
+                onClick={() => {
+                  const { region, city, category } = JSON.parse(
+                    localStorage.getItem("last-search-parameters")
+                  );
 
-          <Col className="w-75 hstack mt-3">
-            <Button
-              size="sm"
-              className="custom-pry custom-pry-border rounded-1"
-              onClick={handleGeneralSearch}
-              type="submit"
-              disabled={search === ""}
-            >
-              <Search />
-            </Button>
-            <Button
-              size="sm"
-              className="border bg-transparent text-dark rounded-1 mx-2"
-              onClick={handleResetGeneral}
-            >
-              <ArrowClockwise />
-            </Button>
-          </Col>
+                  setRegion(region);
+                  setCategories(category);
+                  setCity(city);
+                }}
+                className="btn btn-outline custom-pry-text fw-bold border border-light btn-light py-3"
+              >
+                Retrieve search
+              </Button>
+              <Button
+                onClick={() => {
+                  const data = { region, category, city };
+                  localStorage.setItem(
+                    "last-search-parameters",
+                    JSON.stringify(data)
+                  );
+                }}
+                className="btn btn-outline custom-pry-text fw-bold border border-light btn-light py-3"
+              >
+                Save choice
+              </Button>
+            </div>
+          </div>
         </Col>
       </Form>
     </div>

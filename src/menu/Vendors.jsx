@@ -91,7 +91,7 @@ const Vendors = ({ user }) => {
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold">Vendors</h1>
-      <p className="brand-color">Lists registered vendors on marketplace</p>
+      <p className="custom-pry-text">Lists registered vendors on marketplace</p>
 
       <div className="justify-content-center align-items-center bottom-0 d-flex">
         <div className="col-12 mb-5 text-center d-flex flex-column">

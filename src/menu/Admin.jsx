@@ -39,7 +39,7 @@ const Admin = ({ user }) => {
       style={{ paddingTop: "160px" }}
     >
       <h1 className="fs-3 fw-bold text-start">My Business</h1>
-      <p className="brand-color">
+      <p className="custom-pry-text">
         Track and manage messages, ratings, and vendor profile on marketplace
       </p>
 
