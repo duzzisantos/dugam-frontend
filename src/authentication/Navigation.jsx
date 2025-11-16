@@ -4,7 +4,7 @@ import axios from "axios";
 import { db, auth, logout } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { Navbar, Nav, Button, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Button, NavDropdown, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
   BuildingUp,
@@ -31,22 +31,23 @@ const Navigation = () => {
       try {
         const q = query(collection(db, "users"), where("uid", "==", user?.uid));
         const doc = await getDocs(q);
-        const data = doc.docs[0].data();
-        setName(data.name);
+        const data = doc.docs[0]?.data();
+        if (data) setName(data.name);
       } catch (err) {
         console.log(err);
       }
     };
 
-    if (loading) {
-      return;
-    } else if (!user) {
+    if (!loading && user) {
       getUserName();
-      return navigate("/login");
+    } else if (!loading && !user) {
+      navigate("/login");
     }
   }, [loading, user, navigate]);
 
   useEffect(() => {
+    if (!user) return;
+
     const getCustomer = async () => {
       try {
         const res = await axios.get(
@@ -57,110 +58,111 @@ const Navigation = () => {
             },
           }
         );
-        if (res.status !== 200) {
-          throw new Error(`${res.status} ${res.statusText}`);
-        } else {
+        if (res.status === 200) {
           setCustomerData(res.data);
         }
       } catch (err) {
         console.warn(err.response);
       }
     };
+
     getCustomer();
-  }, [user.email, user.accessToken]);
+  }, [user]);
 
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="bg-white shadow-sm fixed-top col-xxl-12"
+      bg="white"
+      className="shadow-sm fixed-top"
     >
-      <div className="col-xxl-12 col-sm-12 px-5 d-flex h-stack gap-5 justify-content-between flex-sm-wrap mb-3">
+      <Container fluid className="px-4">
         <Navbar.Brand
           as={Link}
-          to="home"
-          className="fw-bold mx-0 hstack gap-1"
-          style={{ color: "#ff5a5f " }}
+          to="/home"
+          className="fw-bold d-flex align-items-center gap-2"
+          style={{ color: "#ff5a5f" }}
         >
-          <BagFill focusable={false} /> dugam{"   "}
+          <BagFill /> dugam
         </Navbar.Brand>
-        <Navbar.Toggle className="text-light mx-2 border-0" id="hamburger" />
-        <Navbar.Collapse>
-          <Nav className="me-auto d-flex justify-content-between col-xxl-12">
-            <div className="d-flex hstack px-1 flex-lg-row flex-md-column flex-sm-column">
-              <Nav.Link
-                as={Link}
-                to="home"
-                className="d-flex hstack gap-2 align-items-center"
-              >
-                <HouseUp /> <small>Home</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="register"
-                className="d-flex hstack gap-2 align-items-center"
-              >
-                <PencilSquare /> <small>Add Business</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="vendors"
-                className="d-flex hstack gap-2 align-items-center"
-              >
-                <CartCheck /> <small>Vendors</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="connect"
-                className="d-flex hstack gap-2 align-items-center"
-              >
-                <PlusCircle /> <small>Connect</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="categories"
-                className="d-flex hstack gap-2 align-items-center"
-              >
-                <CardChecklist /> <small>Categories</small>
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="admin"
-                className="d-flex hstack gap-2 align-items-center"
-              >
-                <BuildingUp /> <small>My Business</small>
-              </Nav.Link>
-            </div>
+
+        <Navbar.Toggle aria-controls="main-nav" />
+
+        <Navbar.Collapse id="main-nav">
+          <Nav className="me-auto d-flex align-items-start flex-column flex-lg-row gap-lg-3 gap-2 mt-3 mt-lg-0">
+            <Nav.Link
+              as={Link}
+              to="/home"
+              className="d-flex gap-2 align-items-center"
+            >
+              <HouseUp /> <small>Home</small>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/register"
+              className="d-flex gap-2 align-items-center"
+            >
+              <PencilSquare /> <small>Add Business</small>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/vendors"
+              className="d-flex gap-2 align-items-center"
+            >
+              <CartCheck /> <small>Vendors</small>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/connect"
+              className="d-flex gap-2 align-items-center"
+            >
+              <PlusCircle /> <small>Connect</small>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/categories"
+              className="d-flex gap-2 align-items-center"
+            >
+              <CardChecklist /> <small>Categories</small>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/admin"
+              className="d-flex gap-2 align-items-center"
+            >
+              <BuildingUp /> <small>My Business</small>
+            </Nav.Link>
+          </Nav>
+
+          <Nav className="ms-lg-auto mt-3 mt-lg-0">
+            <NavDropdown
+              align="end"
+              title={<PersonFill className="fs-3 custom-pry-color" />}
+              id="user-dropdown"
+              className="p-0"
+            >
+              <div className="p-3">
+                <p className="mb-1">
+                  <PersonFill /> {customerData[0]?.userName ?? name}
+                </p>
+                <p className="mb-2">
+                  <ClockFill /> Last login: {user?.metadata?.lastSignInTime}
+                </p>
+                <Button
+                  size="sm"
+                  className="custom-pry rounded-1 border-0 w-100"
+                  onClick={() => {
+                    logout();
+                    navigate("/");
+                  }}
+                >
+                  <Power /> Logout
+                </Button>
+              </div>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <div className="d-flex justify-content-end gap-2">
-          <NavDropdown
-            className="col-xxl-4 col-sm-4 border-0 col-lg-4 p-2 btn btn-light rounded-2 mt-2"
-            title={<PersonFill className="fs-3 custom-pry-color" />}
-            style={{ width: "fit-content" }}
-          >
-            <div className="p-2 border-0 smaller-text">
-              <p>
-                <PersonFill /> {customerData[0]?.userName ?? name}
-              </p>
-              <p>
-                <ClockFill /> Last login: {user.metadata.lastSignInTime}
-              </p>
-              <Button
-                size="sm"
-                className="custom-pry rounded-1 border-0"
-                onClick={() => {
-                  logout();
-                  navigate("/");
-                }}
-                title="Logout"
-              >
-                <Power /> Logout
-              </Button>
-            </div>
-          </NavDropdown>
-        </div>
-      </div>
+      </Container>
     </Navbar>
   );
 };

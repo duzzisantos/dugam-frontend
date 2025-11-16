@@ -126,8 +126,8 @@ const Home = ({ user }) => {
         </Navbar>
       ) : user && window.location.pathname === "home" ? null : null}
 
-      <Row className="my-5 px-5 gap-3" style={{ height: "fit-content" }}>
-        <div className=" mx-auto hero-pad">
+      <Row className="my-5 px-4 gap-3" style={{ height: "fit-content" }}>
+        <div className="mx-auto hero-pad">
           <h1 className="h3 fw-bold mb-2">
             Dugam connects you with vendors and service providers in your area.
           </h1>

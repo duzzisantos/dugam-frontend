@@ -71,6 +71,10 @@
   color: #0678b1 !important;
 }
 
+.feature-hanger {
+  background-color: whitesmoke !important;
+}
+
 .social-button-1:hover {
   color: rgb(206, 28, 28) !important;
 }

@@ -26,7 +26,7 @@ export default function InforCards() {
 
   return (
     <div className="px-4 mt-4">
-      <div className="py-1 bg-secondary-subtle w-100 rounded-2"></div>
+      <div className="py-1 feature-hanger w-100 rounded-2"></div>
       <Row className="g-4">
         {cards.map((c, i) => (
           <Col
@@ -39,7 +39,7 @@ export default function InforCards() {
             style={{ height: "380px" }}
           >
             <div
-              className="bg-secondary-subtle d-flex mx-auto"
+              className="feature-hanger d-flex mx-auto"
               style={{ height: "40px", width: "10px" }}
             ></div>
             <Card
